@@ -49,6 +49,7 @@
 
   .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
 
+  /* Structure selector */
   .structure-selector {
     background: var(--card);
     border: 2px solid var(--border);
@@ -101,6 +102,7 @@
 
   .tag-recommended { background: #dcfce7; color: #15803d; }
   .tag-advanced { background: #fef9c3; color: #92400e; }
+  .tag-complex { background: #fee2e2; color: #991b1b; }
 
   .structure-card h3 { font-size: 1rem; margin-bottom: 4px; }
   .structure-card p { font-size: 0.82rem; color: var(--muted); }
@@ -116,6 +118,7 @@
     font-weight: 600;
   }
 
+  /* Main grid */
   .main-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -142,10 +145,26 @@
   }
 
   .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .form-group .hint { font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; }
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
 
-  input[type="range"] { width: 100%; accent-color: var(--primary); height: 6px; cursor: pointer; }
+  .form-group .hint {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--primary);
+    height: 6px;
+    cursor: pointer;
+  }
 
   input[type="number"] {
     width: 100%;
@@ -156,13 +175,34 @@
     color: var(--text);
     transition: border-color 0.2s;
   }
-  input[type="number"]:focus { outline: none; border-color: var(--primary); }
 
-  .range-value { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
-  .range-value .val { font-weight: 700; color: var(--primary); font-size: 1.05rem; }
+  input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .range-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+  }
+
+  .range-value .val {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.05rem;
+  }
+
   .range-value .max { font-size: 0.78rem; color: var(--muted); }
 
-  .toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  /* Toggle */
+  .toggle-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
   .toggle-btn {
     padding: 7px 14px;
     border: 1.5px solid var(--border);
@@ -173,8 +213,14 @@
     transition: all 0.2s;
     font-weight: 500;
   }
-  .toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
+  .toggle-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  /* Result rows */
   .result-row {
     display: flex;
     justify-content: space-between;
@@ -183,16 +229,24 @@
     border-bottom: 1px solid var(--border);
     font-size: 0.9rem;
   }
+
   .result-row:last-child { border-bottom: none; }
   .result-row .label { color: var(--muted); }
   .result-row .value { font-weight: 600; }
-  .result-row.total { font-weight: 700; font-size: 1rem; margin-top: 4px; padding-top: 12px; border-top: 2px solid var(--border); }
+  .result-row.total {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 2px solid var(--border);
+  }
 
   .val-positive { color: var(--success); }
   .val-negative { color: var(--danger); }
   .val-neutral { color: var(--text); }
   .val-warning { color: var(--warning); }
 
+  /* Big result */
   .big-result {
     background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
     border: 2px solid #bae6fd;
@@ -201,10 +255,12 @@
     margin-top: 16px;
     text-align: center;
   }
+
   .big-result .label { font-size: 0.82rem; color: #0369a1; font-weight: 600; text-transform: uppercase; }
   .big-result .amount { font-size: 2rem; font-weight: 800; color: #0c4a6e; margin: 4px 0; }
   .big-result .sub { font-size: 0.8rem; color: #0369a1; }
 
+  /* Full width card */
   .card-full {
     background: var(--card);
     border: 1px solid var(--border);
@@ -212,86 +268,242 @@
     padding: 22px;
     margin-bottom: 24px;
   }
-  .card-full h2 { font-size: 1rem; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 
-  .threshold-bar-wrapper { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
-  .threshold-bar-wrapper h2 { font-size: 1rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-
-  .bar-track { position: relative; height: 28px; background: #f1f5f9; border-radius: 14px; overflow: hidden; margin-bottom: 8px; }
-  .bar-fill {
-    height: 100%; border-radius: 14px; transition: width 0.4s ease;
-    display: flex; align-items: center; justify-content: flex-end;
-    padding-right: 10px; font-size: 0.8rem; font-weight: 700; color: white; white-space: nowrap;
+  .card-full h2 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+
+  /* Threshold bar */
+  .threshold-bar-wrapper {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  .threshold-bar-wrapper h2 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bar-track {
+    position: relative;
+    height: 28px;
+    background: #f1f5f9;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 14px;
+    transition: width 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+  }
+
   .bar-fill.green { background: linear-gradient(90deg, #22c55e, #16a34a); }
   .bar-fill.yellow { background: linear-gradient(90deg, #f59e0b, #d97706); }
   .bar-fill.red { background: linear-gradient(90deg, #ef4444, #dc2626); }
 
-  .threshold-markers { position: relative; height: 32px; margin-top: 4px; }
-  .marker { position: absolute; transform: translateX(-50%); font-size: 0.72rem; color: var(--muted); text-align: center; white-space: nowrap; }
-  .marker::before { content: '▲'; display: block; font-size: 0.6rem; color: var(--border); margin-bottom: 2px; }
+  .threshold-markers {
+    position: relative;
+    height: 32px;
+    margin-top: 4px;
+  }
 
+  .marker {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .marker::before {
+    content: '\25B2';
+    display: block;
+    font-size: 0.6rem;
+    color: var(--border);
+    margin-bottom: 2px;
+  }
+
+  /* Thresholds table */
   .threshold-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-  .threshold-table th { background: #f8fafc; padding: 10px 14px; text-align: left; font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 2px solid var(--border); }
+  .threshold-table th {
+    background: #f8fafc;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--border);
+  }
+
   .threshold-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
   .threshold-table tr:last-child td { border-bottom: none; }
   .threshold-table tr.active-row td { background: #fffbeb; }
   .threshold-table tr.exceeded-row td { background: #fff1f2; }
 
-  .status-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .status-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
   .dot-green { background: var(--success); }
   .dot-yellow { background: var(--warning); }
   .dot-red { background: var(--danger); }
 
-  .alert { border-radius: 10px; padding: 14px 16px; margin: 16px 0; font-size: 0.88rem; display: flex; gap: 10px; align-items: flex-start; }
+  /* Alert box */
+  .alert {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 0.88rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
   .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
   .alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }
   .alert-warning { background: #fffbeb; border: 1px solid #fde68a; color: #78350f; }
   .alert-danger { background: #fff1f2; border: 1px solid #fecdd3; color: #881337; }
 
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 24px; }
-  .summary-tile { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+  /* Summary grid */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .summary-tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
   .summary-tile .icon { font-size: 1.5rem; margin-bottom: 6px; }
   .summary-tile .tile-label { font-size: 0.78rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
   .summary-tile .tile-value { font-size: 1.35rem; font-weight: 800; }
   .summary-tile .tile-note { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
 
-  .reco-panel { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac; border-radius: 16px; padding: 22px; margin-bottom: 24px; }
+  /* Recommandation panel */
+  .reco-panel {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 2px solid #86efac;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+
   .reco-panel h2 { color: #15803d; margin-bottom: 12px; font-size: 1.05rem; }
   .reco-panel p { color: #166534; font-size: 0.9rem; line-height: 1.65; }
-  .reco-panel.warning-panel { background: linear-gradient(135deg, #fffbeb, #fef9c3); border-color: #fde68a; }
+  .reco-panel.warning-panel {
+    background: linear-gradient(135deg, #fffbeb, #fef9c3);
+    border-color: #fde68a;
+  }
   .reco-panel.warning-panel h2 { color: #92400e; }
   .reco-panel.warning-panel p { color: #78350f; }
-  .reco-panel.danger-panel { background: linear-gradient(135deg, #fff1f2, #ffe4e6); border-color: #fecdd3; }
+  .reco-panel.danger-panel {
+    background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+    border-color: #fecdd3;
+  }
   .reco-panel.danger-panel h2 { color: #881337; }
   .reco-panel.danger-panel p { color: #9f1239; }
 
+  /* Comparison table */
   .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
-  .comparison-table th { padding: 11px 14px; text-align: left; font-weight: 700; background: #f8fafc; border-bottom: 2px solid var(--border); font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+  .comparison-table th {
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 700;
+    background: #f8fafc;
+    border-bottom: 2px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
   .comparison-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
   .comparison-table tr:last-child td { border-bottom: none; }
   .comparison-table .highlight-col { background: #eff6ff; font-weight: 600; }
 
-  footer { text-align: center; padding: 24px; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 8px; }
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
 
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+
+  /* Responsive tweaks */
   @media (max-width: 500px) {
     header h1 { font-size: 1.3rem; }
     .summary-grid { grid-template-columns: 1fr 1fr; }
   }
 
   /* PDF Button */
-  .pdf-btn-wrapper { text-align: center; padding: 16px 0 32px; }
+  .pdf-btn-wrapper {
+    text-align: center;
+    padding: 16px 0 32px;
+  }
+
   .pdf-btn {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white; border: none; padding: 14px 32px; border-radius: 12px;
-    font-size: 1rem; font-weight: 700; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 10px;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     box-shadow: 0 4px 14px rgba(37,99,235,0.35);
     transition: transform 0.15s, box-shadow 0.15s;
   }
-  .pdf-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.45); }
 
-  /* Print */
+  .pdf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+  }
+
+  /* Print styles */
   #print-summary { display: none; }
 
   @media print {
@@ -303,24 +515,45 @@
     #print-summary { display: block !important; }
     .container { padding: 0; max-width: 100%; }
 
-    .ps-header { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; padding: 20px 24px; border-radius: 10px; margin-bottom: 20px; }
+    .ps-header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 20px 24px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
     .ps-header h1 { font-size: 16pt; font-weight: 800; margin-bottom: 4px; }
     .ps-header p { font-size: 10pt; opacity: 0.85; }
 
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
-    .ps-tile { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; }
+    .ps-tile {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
     .ps-tile .tl { font-size: 8pt; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px; }
     .ps-tile .tv { font-size: 16pt; font-weight: 800; }
     .ps-tile .tn { font-size: 8pt; color: #94a3b8; margin-top: 2px; }
 
     .ps-section { margin-bottom: 16px; }
-    .ps-section-title { font-size: 9pt; font-weight: 800; text-transform: uppercase; color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.05em; }
-    .ps-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f1f5f9; font-size: 10pt; }
+    .ps-section-title {
+      font-size: 9pt; font-weight: 800; text-transform: uppercase;
+      color: #2563eb; border-bottom: 2px solid #2563eb;
+      padding-bottom: 4px; margin-bottom: 10px; letter-spacing: 0.05em;
+    }
+    .ps-row {
+      display: flex; justify-content: space-between;
+      padding: 5px 0; border-bottom: 1px solid #f1f5f9;
+      font-size: 10pt;
+    }
     .ps-row .pl { color: #64748b; }
     .ps-row .pv { font-weight: 600; }
     .ps-row.ptotal { font-weight: 800; font-size: 11pt; border-top: 2px solid #e2e8f0; margin-top: 4px; }
 
-    .ps-reco { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+    .ps-reco {
+      background: #f0fdf4; border: 1.5px solid #86efac;
+      border-radius: 8px; padding: 12px 14px; margin-bottom: 16px;
+    }
     .ps-reco.warn { background: #fffbeb; border-color: #fde68a; }
     .ps-reco.danger { background: #fff1f2; border-color: #fecdd3; }
     .ps-reco h3 { font-size: 10pt; font-weight: 800; color: #15803d; margin-bottom: 4px; }
@@ -334,7 +567,10 @@
     .ps-thresholds th { background: #f8fafc; padding: 6px 10px; text-align: left; font-size: 8pt; color: #64748b; text-transform: uppercase; border-bottom: 2px solid #e2e8f0; }
     .ps-thresholds td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; }
 
-    .ps-footer { font-size: 8pt; color: #94a3b8; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 8px; }
+    .ps-footer {
+      font-size: 8pt; color: #94a3b8; text-align: center;
+      border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 8px;
+    }
     .c-green { color: #16a34a; }
     .c-red { color: #dc2626; }
     .c-orange { color: #d97706; }
@@ -345,432 +581,813 @@
 <body>
 
 <header>
-  <h1>🏋️ Calculateur Micro-Entreprise Coach Sportif</h1>
-  <p>Simulez votre situation fiscale en temps réel — Barème 2026</p>
+  <h1>&#x1F3CB;&#xFE0F; Calculateur Micro-Entreprise Coach Sportif</h1>
+  <p>Simulez votre situation fiscale en temps r&#233;el &#8212; Bar&#232;me 2026</p>
   <span class="badge">Revenus 2025-2026</span>
 </header>
 
 <div class="container">
 
+  <!-- STRUCTURE SELECTOR -->
   <div class="structure-selector">
-    <h2>⚖️ Choisissez votre structure juridique</h2>
+    <h2>&#x2696;&#xFE0F; Choisissez votre structure juridique</h2>
     <div class="structure-grid">
       <div class="structure-card active" onclick="setStructure('micro-bnc')" id="card-micro-bnc">
-        <span class="recommend-badge">✓ Recommandé</span>
+        <span class="recommend-badge">&#x2713; Recommand&#233;</span>
         <span class="tag tag-recommended">Micro-BNC</span>
         <h3>Micro-Entreprise BNC</h3>
-        <p>Coach sportif, prof libérale non réglementée. Abattement 34 %. IR.</p>
+        <p>Coach sportif, prof lib&#233;rale non r&#233;glement&#233;e. Abattement 34 %. IR.</p>
       </div>
       <div class="structure-card" onclick="setStructure('micro-bic')" id="card-micro-bic">
         <span class="tag tag-recommended">Micro-BIC</span>
         <h3>Micro-Entreprise BIC</h3>
-        <p>Activité commerciale ou artisanale. Abattement 50 %. IR.</p>
+        <p>Activit&#233; commerciale ou artisanale. Abattement 50 %. IR.</p>
       </div>
       <div class="structure-card" onclick="setStructure('sasu')" id="card-sasu">
-        <span class="tag tag-advanced">Société IS</span>
+        <span class="tag tag-advanced">Soci&#233;t&#233; IS</span>
         <h3>SASU / EURL IS</h3>
-        <p>Impôt sur les sociétés. Pertinent au-delà de ~35 000 € de bénéfice.</p>
+        <p>Imp&#244;t sur les soci&#233;t&#233;s. Pertinent au-del&#224; de ~35 000 &#x20AC; de b&#233;n&#233;fice.</p>
       </div>
       <div class="structure-card" onclick="setStructure('ei')" id="card-ei">
-        <span class="tag tag-advanced">EI Réel</span>
-        <h3>EI au Réel</h3>
-        <p>Charges déductibles réelles. Comptabilité complète requise.</p>
+        <span class="tag tag-advanced">EI R&#233;el</span>
+        <h3>EI au R&#233;el</h3>
+        <p>Charges d&#233;ductibles r&#233;elles. Comptabilit&#233; compl&#232;te requise.</p>
       </div>
     </div>
-    <div id="structure-info" class="alert alert-info" style="margin-top:14px;margin-bottom:0;">
-      ℹ️ <strong>Micro-BNC sélectionné :</strong> abattement forfaitaire de 34 % sur le CA. Idéal pour l’activité de coach sportif. Aucun expert-comptable nécessaire.
+    <div id="structure-info" class="alert alert-info" style="margin-top:14px; margin-bottom:0;">
+      &#x2139;&#xFE0F; <strong>Micro-BNC s&#233;lectionn&#233; :</strong> abattement forfaitaire de 34 % sur le CA. Id&#233;al pour l'activit&#233; de coach sportif (profession lib&#233;rale non r&#233;glement&#233;e). Aucun expert-comptable n&#233;cessaire.
     </div>
   </div>
 
+  <!-- INPUTS -->
   <div class="main-grid">
+    <!-- Revenus -->
     <div class="card">
-      <h2>💶 Vos revenus</h2>
+      <h2>&#x1F4B6; Vos revenus</h2>
+
       <div class="form-group">
-        <label>Chiffre d’affaires (CA) annuel</label>
+        <label>Chiffre d'affaires (CA) annuel</label>
         <div class="hint">Revenus bruts de coaching</div>
         <input type="range" id="ca-slider" min="0" max="77700" step="100" value="26660" oninput="syncInput('ca')">
         <div class="range-value">
-          <span class="val" id="ca-display">26 660 €</span>
-          <span class="max">max micro : 77 700 €</span>
+          <span class="val" id="ca-display">26 660 &#x20AC;</span>
+          <span class="max">max micro : 77 700 &#x20AC;</span>
         </div>
         <input type="number" id="ca-input" value="26660" min="0" max="77700" oninput="syncSlider('ca')" style="margin-top:8px;">
       </div>
+
       <div class="form-group">
         <label>Type de contrat de travail</label>
         <div class="toggle-group">
           <button class="toggle-btn active" onclick="setContrat('aucun')" id="btn-aucun">Aucun</button>
           <button class="toggle-btn" onclick="setContrat('apprentissage')" id="btn-apprentissage">Apprentissage</button>
           <button class="toggle-btn" onclick="setContrat('pro')" id="btn-pro">Contrat pro</button>
-          <button class="toggle-btn" onclick="setContrat('salarie')" id="btn-salarie">Salarié classique</button>
+          <button class="toggle-btn" onclick="setContrat('salarie')" id="btn-salarie">Salari&#233; classique</button>
         </div>
       </div>
+
       <div class="form-group" id="salaire-group" style="display:none;">
         <label>Salaire brut annuel (contrat)</label>
-        <div class="hint">Brut annuel du contrat salarié/alternance</div>
+        <div class="hint">Brut annuel du contrat salari&#233;/alternance</div>
         <input type="range" id="salaire-slider" min="0" max="40000" step="100" value="14400" oninput="syncInput('salaire')">
         <div class="range-value">
-          <span class="val" id="salaire-display">14 400 €</span>
-          <span class="max">plafond exo : 21 876 €</span>
+          <span class="val" id="salaire-display">14 400 &#x20AC;</span>
+          <span class="max">plafond exo : 21 876 &#x20AC;</span>
         </div>
         <input type="number" id="salaire-input" value="14400" min="0" max="40000" oninput="syncSlider('salaire')" style="margin-top:8px;">
       </div>
+
       <div class="form-group">
         <label>Situation familiale</label>
         <div class="toggle-group">
-          <button class="toggle-btn active" onclick="setParts(1)" id="btn-1part">Célibataire (1 part)</button>
+          <button class="toggle-btn active" onclick="setParts(1)" id="btn-1part">C&#233;libataire (1 part)</button>
           <button class="toggle-btn" onclick="setParts(1.5)" id="btn-15part">+ 1 enfant (1,5 parts)</button>
           <button class="toggle-btn" onclick="setParts(2)" id="btn-2parts">Couple (2 parts)</button>
         </div>
       </div>
     </div>
 
+    <!-- R&#233;sultats d&#233;taill&#233;s -->
     <div class="card">
-      <h2>📊 Calcul détaillé</h2>
-      <div id="calcul-detail"></div>
-      <div class="big-result">
-        <div class="label">Revenu net après tout</div>
-        <div class="amount" id="big-amount">—</div>
-        <div class="sub" id="big-sub">—</div>
+      <h2>&#x1F4CA; Calcul d&#233;taill&#233;</h2>
+      <div id="calcul-detail">
+        <!-- G&#233;n&#233;r&#233; par JS -->
+      </div>
+      <div class="big-result" id="big-result">
+        <div class="label">Revenu net apr&#232;s tout</div>
+        <div class="amount" id="big-amount">&#8212;</div>
+        <div class="sub" id="big-sub">&#8212;</div>
       </div>
     </div>
   </div>
 
-  <div class="summary-grid">
+  <!-- SUMMARY TILES -->
+  <div class="summary-grid" id="summary-tiles">
     <div class="summary-tile">
-      <div class="icon">💰</div>
-      <div class="tile-label">Chiffre d’affaires</div>
-      <div class="tile-value" id="tile-ca" style="color:#2563eb;">—</div>
+      <div class="icon">&#x1F4B0;</div>
+      <div class="tile-label">Chiffre d'affaires</div>
+      <div class="tile-value" id="tile-ca" style="color:#2563eb;">&#8212;</div>
       <div class="tile-note">CA brut annuel</div>
     </div>
     <div class="summary-tile">
-      <div class="icon">🏛️</div>
+      <div class="icon">&#x1F3DB;&#xFE0F;</div>
       <div class="tile-label">URSSAF</div>
-      <div class="tile-value" id="tile-urssaf" style="color:#dc2626;">—</div>
-      <div class="tile-note">~21,1 % du CA</div>
+      <div class="tile-value" id="tile-urssaf" style="color:#dc2626;">&#8212;</div>
+      <div class="tile-note">~21,1 % du CA</div>
     </div>
     <div class="summary-tile">
-      <div class="icon">🧾</div>
-      <div class="tile-label">Impôt (IR)</div>
-      <div class="tile-value" id="tile-ir" style="color:#d97706;">—</div>
-      <div class="tile-note">Après décote</div>
+      <div class="icon">&#x1F9FE;</div>
+      <div class="tile-label">Imp&#244;t (IR)</div>
+      <div class="tile-value" id="tile-ir" style="color:#d97706;">&#8212;</div>
+      <div class="tile-note">Apr&#232;s d&#233;cote</div>
     </div>
     <div class="summary-tile">
-      <div class="icon">✅</div>
+      <div class="icon">&#x2705;</div>
       <div class="tile-label">Net disponible</div>
-      <div class="tile-value" id="tile-net" style="color:#16a34a;">—</div>
-      <div class="tile-note">CA − URSSAF − IR</div>
+      <div class="tile-value" id="tile-net" style="color:#16a34a;">&#8212;</div>
+      <div class="tile-note">CA &#8722; URSSAF &#8722; IR</div>
     </div>
     <div class="summary-tile">
-      <div class="icon">📈</div>
+      <div class="icon">&#x1F4C8;</div>
       <div class="tile-label">Taux effectif total</div>
-      <div class="tile-value" id="tile-taux" style="color:#7c3aed;">—</div>
+      <div class="tile-value" id="tile-taux" style="color:#7c3aed;">&#8212;</div>
       <div class="tile-note">URSSAF + IR / CA</div>
     </div>
   </div>
 
+  <!-- RECOMMENDATION -->
   <div id="reco-panel" class="reco-panel" style="margin-bottom:24px;">
-    <h2 id="reco-title">✅ Situation optimale</h2>
+    <h2 id="reco-title">&#x2705; Situation optimale</h2>
     <p id="reco-text">Chargement...</p>
   </div>
 
+  <!-- SEUILS -->
   <div class="threshold-bar-wrapper" style="margin-bottom:24px;">
-    <h2>📏 Position par rapport aux seuils clés</h2>
+    <h2>&#x1F4CF; Position par rapport aux seuils cl&#233;s</h2>
     <div style="margin-bottom:20px;">
-      <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-        <span style="font-size:0.82rem;font-weight:600;color:var(--muted);">Votre CA par rapport au plafond micro-BNC (77 700 €)</span>
-        <span style="font-size:0.82rem;font-weight:700;" id="bar-pct">—</span>
+      <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+        <span style="font-size:0.82rem; font-weight:600; color:var(--muted);">Votre CA par rapport au plafond micro-BNC (77 700 &#x20AC;)</span>
+        <span style="font-size:0.82rem; font-weight:700;" id="bar-pct">&#8212;</span>
       </div>
       <div class="bar-track">
-        <div class="bar-fill green" id="bar-fill" style="width:0%;"><span id="bar-label"></span></div>
+        <div class="bar-fill green" id="bar-fill" style="width:0%;">
+          <span id="bar-label"></span>
+        </div>
       </div>
-      <div class="threshold-markers">
-        <div class="marker" style="left:34.3%;"><span>26 660 €<br>Seuil 0 IR</span></div>
-        <div class="marker" style="left:48.3%;"><span>37 500 €<br>TVA</span></div>
-        <div class="marker" style="left:100%;"><span>77 700 €<br>Plafond</span></div>
+      <div class="threshold-markers" id="threshold-markers">
+        <div class="marker" style="left:34.3%;">
+          <span>26 660 &#x20AC;<br>Seuil 0 IR</span>
+        </div>
+        <div class="marker" style="left:48.3%;">
+          <span>37 500 &#x20AC;<br>TVA</span>
+        </div>
+        <div class="marker" style="left:100%;">
+          <span>77 700 &#x20AC;<br>Plafond</span>
+        </div>
       </div>
     </div>
+
     <table class="threshold-table">
-      <thead><tr><th>Seuil</th><th>Montant CA</th><th>Conséquence</th><th>Statut</th></tr></thead>
-      <tbody id="threshold-tbody"></tbody>
+      <thead>
+        <tr>
+          <th>Seuil</th>
+          <th>Montant CA</th>
+          <th>Cons&#233;quence</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody id="threshold-tbody">
+      </tbody>
     </table>
   </div>
 
+  <!-- COMPARAISON STRUCTURES -->
   <div class="card-full" style="margin-bottom:24px;">
-    <h2>⚖️ Comparaison des structures pour votre CA</h2>
+    <h2>&#x2696;&#xFE0F; Comparaison des structures pour votre CA</h2>
     <div style="overflow-x:auto;">
-      <table class="comparison-table">
-        <thead><tr><th>Structure</th><th>Abatt. / déductions</th><th>URSSAF / cotis.</th><th>Impôt</th><th>Net estimé</th><th>Complexité</th></tr></thead>
-        <tbody id="comparison-tbody"></tbody>
+      <table class="comparison-table" id="comparison-table">
+        <thead>
+          <tr>
+            <th>Structure</th>
+            <th>Abatt. / d&#233;ductions</th>
+            <th>URSSAF / cotis.</th>
+            <th>Imp&#244;t</th>
+            <th>Net estim&#233;</th>
+            <th>Complexit&#233;</th>
+          </tr>
+        </thead>
+        <tbody id="comparison-tbody">
+        </tbody>
       </table>
     </div>
-    <div class="alert alert-warning" style="margin-top:14px;margin-bottom:0;">
-      ⚠️ Les calculs SASU/EI sont des estimations simplifiées. Consultez un expert-comptable pour ces structures.
+    <div class="alert alert-warning" style="margin-top:14px; margin-bottom:0;">
+      &#x26A0;&#xFE0F; Les calculs SASU/EI sont des estimations simplifi&#233;es. Consultez un expert-comptable pour ces structures.
     </div>
   </div>
 
-  <div class="card-full" id="alternance-section" style="display:none;margin-bottom:24px;">
-    <h2>🎓 Détail alternance / cumul de revenus</h2>
+  <!-- ALTERNANCE DETAIL -->
+  <div class="card-full" id="alternance-section" style="display:none; margin-bottom:24px;">
+    <h2>&#x1F393; D&#233;tail alternance / cumul de revenus</h2>
     <div id="alternance-detail"></div>
   </div>
 
+  <!-- POINTS DE VIGILANCE -->
   <div class="card-full" style="margin-bottom:24px;">
-    <h2>⚠️ Points de vigilance</h2>
+    <h2>&#x26A0;&#xFE0F; Points de vigilance</h2>
     <div id="vigilance-list"></div>
   </div>
 
+
+  <!-- PDF BUTTON -->
   <div class="pdf-btn-wrapper">
-    <button class="pdf-btn" onclick="generatePDF()">📄 Générer la synthèse PDF</button>
+    <button class="pdf-btn" onclick="generatePDF()">
+      &#x1F4C4; G&#233;n&#233;rer la synth&#232;se PDF
+    </button>
   </div>
 
+  <!-- PRINT SUMMARY (hidden on screen, shown when printing) -->
   <div id="print-summary"></div>
 
 </div>
 
 <footer>
-  Ce simulateur est fourni à titre indicatif — barème IR 2026 (revenus 2025-2026). Les taux et seuils sont susceptibles d’évoluer.<br>
-  Pour une décision engageante, consultez l’administration fiscale (<strong>impots.gouv.fr</strong>) ou un professionnel.
+  Ce simulateur est fourni &#224; titre indicatif &#8212; bar&#232;me IR 2026 (revenus 2025-2026). Les taux et seuils sont susceptibles d'&#233;voluer.<br>
+  Pour une d&#233;cision engageante, consultez l'administration fiscale (<strong>impots.gouv.fr</strong>) ou un professionnel.
 </footer>
 
 <script>
-const state = { ca: 26660, salaire: 14400, contrat: 'aucun', parts: 1, structure: 'micro-bnc' };
-
-const structures = {
-  'micro-bnc': { label: 'Micro-BNC', abattement: 0.34, urssafRate: 0.211, info: 'abattement forfaitaire de 34 % sur le CA. Idéal pour l\'activité de coach sportif (profession libérale non réglementée). Aucun expert-comptable nécessaire.' },
-  'micro-bic': { label: 'Micro-BIC', abattement: 0.50, urssafRate: 0.128, info: 'abattement forfaitaire de 50 % sur le CA. Pour activité commerciale ou artisanale.' },
-  'sasu': { label: 'SASU (IS)', abattement: null, urssafRate: 0.45, info: 'Impôt sur les sociétés (15 % jusqu\'à 42 500 €, 25 % au-delà). Pertinent au-delà de ~35 000 € de bénéfice net.' },
-  'ei': { label: 'EI au Réel', abattement: null, urssafRate: 0.45, info: 'Déduction des charges réelles. Nécessite une comptabilité complète.' }
+// ============================================================
+// STATE
+// ============================================================
+const state = {
+  ca: 26660,
+  salaire: 14400,
+  contrat: 'aucun',
+  parts: 1,
+  structure: 'micro-bnc'
 };
 
-function calculateIR(rev, parts) {
-  if (rev <= 0) return 0;
-  const q = rev / parts;
+// ============================================================
+// STRUCTURE CONFIGS
+// ============================================================
+const structures = {
+  'micro-bnc': {
+    label: 'Micro-BNC',
+    abattement: 0.34,
+    urssafRate: 0.211,
+    info: 'abattement forfaitaire de 34 % sur le CA. Idéal pour l\'activité de coach sportif (profession libérale non réglementée). Aucun expert-comptable nécessaire.',
+    creation: 0,
+    cfe: '0 € (an 1) puis ~250–600 €/an',
+    comptable: 'Non requis'
+  },
+  'micro-bic': {
+    label: 'Micro-BIC',
+    abattement: 0.50,
+    urssafRate: 0.128,
+    info: 'abattement forfaitaire de 50 % sur le CA. Pour activité commerciale ou artisanale. Coûts de cotisations légèrement différents.',
+    creation: 0,
+    cfe: '0 € (an 1) puis ~250–600 €/an',
+    comptable: 'Non requis'
+  },
+  'sasu': {
+    label: 'SASU (IS)',
+    abattement: null,
+    urssafRate: 0.45,
+    info: 'Impôt sur les sociétés (15 % jusqu\'à 42 500 € de bénéfice, 25 % au-delà). Pertinent seulement au-delà de ~35 000 € de bénéfice net. Expert-comptable fortement conseillé.',
+    creation: 300,
+    cfe: '250–600 €/an',
+    comptable: '~2 000–3 000 €/an'
+  },
+  'ei': {
+    label: 'EI au Réel',
+    abattement: null,
+    urssafRate: 0.45,
+    info: 'Déduction des charges réelles. Peut être avantageux si vos charges réelles dépassent l\'abattement forfaitaire. Nécessite une comptabilité complète.',
+    creation: 0,
+    cfe: '0 € (an 1) puis ~250–600 €/an',
+    comptable: '~800–1 500 €/an'
+  }
+};
+
+// ============================================================
+// IR CALCULATION (barème 2026 — revenus 2025-2026)
+// ============================================================
+function calculateIR(revenuImposable, parts) {
+  if (revenuImposable <= 0) return 0;
+
+  const quotient = revenuImposable / parts;
   let ir = 0;
-  const t = [{min:0,max:11600,r:0},{min:11600,max:26200,r:0.11},{min:26200,max:74545,r:0.30},{min:74545,max:160336,r:0.41},{min:160336,max:Infinity,r:0.45}];
-  for (const s of t) if (q > s.min) ir += (Math.min(q, s.max) - s.min) * s.r;
+
+  const tranches = [
+    { min: 0,      max: 11600,  taux: 0 },
+    { min: 11600,  max: 26200,  taux: 0.11 },
+    { min: 26200,  max: 74545,  taux: 0.30 },
+    { min: 74545,  max: 160336, taux: 0.41 },
+    { min: 160336, max: Infinity, taux: 0.45 }
+  ];
+
+  for (const t of tranches) {
+    if (quotient > t.min) {
+      const base = Math.min(quotient, t.max) - t.min;
+      ir += base * t.taux;
+    }
+  }
+
   ir *= parts;
-  const sd = parts === 1 ? 1929 : 3191;
-  if (ir > 0 && ir < sd) { const d = Math.max(0, (parts === 1 ? 897 : 1481) - 0.4525 * ir); ir = Math.max(0, ir - d); }
+
+  const seuilDecote = parts === 1 ? 1929 : 3191;
+  const decoteCoeff = 0.4525;
+  if (ir > 0 && ir < seuilDecote) {
+    const decote = Math.max(0, (parts === 1 ? 897 : 1481) - decoteCoeff * ir);
+    ir = Math.max(0, ir - decote);
+  }
+
   if (ir < 61) ir = 0;
+
   return Math.round(ir);
 }
 
+// ============================================================
+// MAIN CALCULATION
+// ============================================================
 function calculate() {
-  const s = state, st = structures[s.structure];
-  let urssaf = 0, benImp = 0, salImp = 0, salExo = 0, salNet = 0;
+  const s = state;
+  const struct = structures[s.structure];
+
+  let urssaf = 0;
+  let beneficeImposable = 0;
+  let salaireImposable = 0;
+  let salaireExonere = 0;
+  let salaireNet = 0;
+
   if (s.structure === 'micro-bnc' || s.structure === 'micro-bic') {
-    urssaf = Math.round(s.ca * st.urssafRate);
-    benImp = Math.round(s.ca * (1 - st.abattement));
+    urssaf = Math.round(s.ca * struct.urssafRate);
+    beneficeImposable = Math.round(s.ca * (1 - struct.abattement));
   } else if (s.structure === 'sasu') {
-    const sal = Math.round(s.ca * 0.55), cot = Math.round(sal * 0.80);
-    const ben = Math.max(0, s.ca - sal - cot);
-    const is = ben <= 42500 ? Math.round(ben*0.15) : Math.round(42500*0.15+(ben-42500)*0.25);
-    urssaf = cot; benImp = Math.round(sal * 0.90);
-  } else {
-    const ch = Math.round(s.ca*0.25);
-    urssaf = Math.round((s.ca-ch)*0.45);
-    benImp = Math.max(0, s.ca-ch-urssaf);
+    const salaireDirigeant = Math.round(s.ca * 0.55);
+    const cotisationsSASU = Math.round(salaireDirigeant * 0.80);
+    const benSociete = Math.max(0, s.ca - salaireDirigeant - cotisationsSASU);
+    const impotSoc = benSociete <= 42500
+      ? Math.round(benSociete * 0.15)
+      : Math.round(42500 * 0.15 + (benSociete - 42500) * 0.25);
+    urssaf = cotisationsSASU;
+    beneficeImposable = Math.round(salaireDirigeant * 0.90);
+  } else if (s.structure === 'ei') {
+    const chargesEstimees = Math.round(s.ca * 0.25);
+    urssaf = Math.round((s.ca - chargesEstimees) * 0.45);
+    beneficeImposable = Math.max(0, s.ca - chargesEstimees - urssaf);
   }
-  if (s.contrat === 'apprentissage') { salExo = Math.min(s.salaire,21876); salImp = Math.max(0,s.salaire-21876); salNet = Math.round(s.salaire*0.95); }
-  else if (s.contrat === 'pro') { salImp = s.salaire; salNet = Math.round(s.salaire*0.77); }
-  else if (s.contrat === 'salarie') { salImp = Math.round(s.salaire*0.90); salNet = Math.round(s.salaire*0.77); }
-  const totImp = benImp + salImp;
-  const ir = calculateIR(totImp, s.parts);
-  const netM = s.ca - urssaf - ir;
-  const netT = netM + (s.contrat !== 'aucun' ? salNet : 0);
-  const taux = s.ca > 0 ? Math.round((urssaf+ir)/s.ca*100) : 0;
-  return { ca:s.ca, urssaf, benImp, salImp, salExo, salNet, totImp, ir, netM, netT, taux, st };
+
+  if (s.contrat === 'apprentissage') {
+    const plafondExo = 21876;
+    salaireExonere = Math.min(s.salaire, plafondExo);
+    salaireImposable = Math.max(0, s.salaire - plafondExo);
+    salaireNet = Math.round(s.salaire * 0.95);
+  } else if (s.contrat === 'pro') {
+    salaireImposable = s.salaire;
+    salaireNet = Math.round(s.salaire * 0.77);
+  } else if (s.contrat === 'salarie') {
+    salaireImposable = Math.round(s.salaire * 0.90);
+    salaireNet = Math.round(s.salaire * 0.77);
+  }
+
+  const totalImposable = beneficeImposable + salaireImposable;
+  const ir = calculateIR(totalImposable, s.parts);
+
+  const netMicro = s.ca - urssaf - ir;
+  const netTotal = netMicro + (s.contrat !== 'aucun' ? salaireNet : 0);
+  const tauxEffectif = s.ca > 0 ? Math.round((urssaf + ir) / s.ca * 100) : 0;
+
+  return {
+    ca: s.ca,
+    urssaf,
+    beneficeImposable,
+    salaireImposable,
+    salaireExonere,
+    salaireNet,
+    totalImposable,
+    ir,
+    netMicro,
+    netTotal,
+    tauxEffectif,
+    struct
+  };
 }
 
-function fmt(n) { return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); }
+// ============================================================
+// FORMAT
+// ============================================================
+function fmt(n) {
+  return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+}
 
+// ============================================================
+// RENDER
+// ============================================================
 function render() {
-  const r = calculate(), s = state;
+  const r = calculate();
+  const s = state;
+
+  // --- Tiles ---
   document.getElementById('tile-ca').textContent = fmt(r.ca);
   document.getElementById('tile-urssaf').textContent = fmt(r.urssaf);
-  document.getElementById('tile-ir').textContent = r.ir===0 ? '0 € ✓' : fmt(r.ir);
-  document.getElementById('tile-net').textContent = fmt(r.netT);
-  document.getElementById('tile-taux').textContent = r.taux + ' %';
+  document.getElementById('tile-ir').textContent = r.ir === 0 ? '0 € ✓' : fmt(r.ir);
+  document.getElementById('tile-net').textContent = fmt(r.netTotal);
+  document.getElementById('tile-taux').textContent = r.tauxEffectif + ' %';
 
-  const isMicro = s.structure==='micro-bnc'||s.structure==='micro-bic';
-  let rows = `<div class="result-row"><span class="label">Chiffre d’affaires (CA)</span><span class="value val-neutral">${fmt(r.ca)}</span></div>`;
+  // --- Calcul détaillé ---
+  let rows = '';
+  const isMicro = s.structure === 'micro-bnc' || s.structure === 'micro-bic';
+
+  rows += `<div class="result-row"><span class="label">Chiffre d'affaires (CA)</span><span class="value val-neutral">${fmt(r.ca)}</span></div>`;
+
   if (isMicro) {
-    const ab = Math.round(r.ca*r.st.abattement);
-    rows += `<div class="result-row"><span class="label">Abattement (${Math.round(r.st.abattement*100)} %)</span><span class="value val-negative">− ${fmt(ab)}</span></div>`;
-    rows += `<div class="result-row"><span class="label">Bénéfice imposable</span><span class="value val-neutral">${fmt(r.benImp)}</span></div>`;
+    const abatt = Math.round(r.ca * r.struct.abattement);
+    rows += `<div class="result-row"><span class="label">Abattement forfaitaire (${Math.round(r.struct.abattement*100)} %)</span><span class="value val-negative">− ${fmt(abatt)}</span></div>`;
+    rows += `<div class="result-row"><span class="label">Bénéfice imposable micro</span><span class="value val-neutral">${fmt(r.beneficeImposable)}</span></div>`;
   }
-  rows += `<div class="result-row"><span class="label">URSSAF (${Math.round(r.st.urssafRate*1000)/10} %)</span><span class="value val-negative">− ${fmt(r.urssaf)}</span></div>`;
+
+  rows += `<div class="result-row"><span class="label">URSSAF (${Math.round(r.struct.urssafRate*100*10)/10} % du CA)</span><span class="value val-negative">− ${fmt(r.urssaf)}</span></div>`;
+
   if (s.contrat !== 'aucun') {
-    if (s.contrat==='apprentissage') {
+    if (s.contrat === 'apprentissage') {
       rows += `<div class="result-row"><span class="label">Salaire apprenti brut</span><span class="value val-neutral">${fmt(s.salaire)}</span></div>`;
-      rows += `<div class="result-row"><span class="label">↳ Part exonérée IR</span><span class="value val-positive">+ ${fmt(r.salExo)} (exo)</span></div>`;
-      if (r.salImp>0) rows += `<div class="result-row"><span class="label">↳ Fraction imposable</span><span class="value val-warning">${fmt(r.salImp)}</span></div>`;
+      rows += `<div class="result-row"><span class="label">↳ Part exonérée IR</span><span class="value val-positive">+ ${fmt(r.salaireExonere)} (exo)</span></div>`;
+      if (r.salaireImposable > 0) rows += `<div class="result-row"><span class="label">↳ Fraction imposable</span><span class="value val-warning">${fmt(r.salaireImposable)}</span></div>`;
     } else {
-      rows += `<div class="result-row"><span class="label">Salaire (base imposable)</span><span class="value val-neutral">${fmt(r.salImp)}</span></div>`;
+      rows += `<div class="result-row"><span class="label">Salaire (base imposable)</span><span class="value val-neutral">${fmt(r.salaireImposable)}</span></div>`;
     }
   }
-  rows += `<div class="result-row total"><span class="label">Base IR totale</span><span class="value">${fmt(r.totImp)}</span></div>`;
-  rows += `<div class="result-row"><span class="label">Impôt sur le revenu (IR)</span><span class="value ${r.ir===0?'val-positive':'val-negative'}">− ${fmt(r.ir)} ${r.ir===0?'✓':''}</span></div>`;
-  rows += `<div class="result-row total"><span class="label">Net micro après URSSAF + IR</span><span class="value val-positive">${fmt(r.netM)}</span></div>`;
-  if (s.contrat!=='aucun') {
-    rows += `<div class="result-row"><span class="label">+ Salaire net ${s.contrat==='apprentissage'?'apprenti':'salarié'}</span><span class="value val-positive">+ ${fmt(r.salNet)}</span></div>`;
-    rows += `<div class="result-row total"><span class="label">Net total tous revenus</span><span class="value val-positive">${fmt(r.netT)}</span></div>`;
+
+  rows += `<div class="result-row total"><span class="label">Base IR totale</span><span class="value">${fmt(r.totalImposable)}</span></div>`;
+  rows += `<div class="result-row"><span class="label">Impôt sur le revenu (IR)</span><span class="value ${r.ir === 0 ? 'val-positive' : 'val-negative'}">− ${fmt(r.ir)} ${r.ir === 0 ? '✓' : ''}</span></div>`;
+  rows += `<div class="result-row total"><span class="label">Net micro après URSSAF + IR</span><span class="value val-positive">${fmt(r.netMicro)}</span></div>`;
+
+  if (s.contrat !== 'aucun') {
+    rows += `<div class="result-row"><span class="label">+ Salaire net ${s.contrat === 'apprentissage' ? 'apprenti' : 'salarié'}</span><span class="value val-positive">+ ${fmt(r.salaireNet)}</span></div>`;
+    rows += `<div class="result-row total"><span class="label">Net total tous revenus</span><span class="value val-positive">${fmt(r.netTotal)}</span></div>`;
   }
+
   document.getElementById('calcul-detail').innerHTML = rows;
-  document.getElementById('big-amount').textContent = fmt(r.netT);
-  document.getElementById('big-sub').textContent = `≈ ${fmt(Math.round(r.netT/12))}/mois — taux effectif : ${r.taux} %`;
 
-  const pct = Math.min(100, Math.round(r.ca/77700*100));
-  const bf = document.getElementById('bar-fill');
-  bf.style.width = pct+'%';
-  bf.className = 'bar-fill '+(pct<40?'green':pct<65?'yellow':'red');
-  bf.querySelector('span').textContent = pct>8?(pct+' %'):'';
-  document.getElementById('bar-pct').textContent = pct+' %';
+  document.getElementById('big-amount').textContent = fmt(r.netTotal);
+  const mensuel = fmt(Math.round(r.netTotal / 12));
+  document.getElementById('big-sub').textContent = `≈ ${mensuel}/mois — taux effectif total : ${r.tauxEffectif} %`;
 
-  const thresholds = [{label:'Seuil 0 % IR (1 part)',ca:26660,eff:'L\'IR commence à être prélevé'},{label:'Franchise TVA',ca:37500,eff:'Obligation de facturer et déclarer la TVA'},{label:'Plafond micro-BNC',ca:77700,eff:'Bascule obligatoire au régime réel (2 ans consécutifs)'}];
-  document.getElementById('threshold-tbody').innerHTML = thresholds.map(t => {
-    const ex=r.ca>t.ca, ac=r.ca>t.ca*0.85&&r.ca<=t.ca;
-    const cls=ex?'exceeded-row':ac?'active-row':'';
-    const dot=ex?'dot-red':ac?'dot-yellow':'dot-green';
-    const st2=ex?'⚠️ Dépassé':ac?'⚡ Proche':'✓ OK';
-    const note=ex?`Dépassé de ${fmt(r.ca-t.ca)}`:`Marge : ${fmt(t.ca-r.ca)}`;
-    return `<tr class="${cls}"><td><span class="status-dot ${dot}"></span>${t.label}</td><td><strong>${fmt(t.ca)}</strong></td><td style="font-size:0.83rem;">${t.eff}</td><td><strong>${st2}</strong><br><span style="font-size:0.75rem;color:var(--muted);">${note}</span></td></tr>`;
-  }).join('');
+  // --- Bar ---
+  const pct = Math.min(100, Math.round(r.ca / 77700 * 100));
+  const barFill = document.getElementById('bar-fill');
+  barFill.style.width = pct + '%';
+  barFill.className = 'bar-fill ' + (pct < 40 ? 'green' : pct < 65 ? 'yellow' : 'red');
+  barFill.querySelector('span').textContent = pct > 8 ? (pct + ' %') : '';
+  document.getElementById('bar-pct').textContent = pct + ' %';
 
-  const rp=document.getElementById('reco-panel'), rt=document.getElementById('reco-title'), rx=document.getElementById('reco-text');
-  let txt='';
-  if (r.ca<=26660&&r.ir===0) { rp.className='reco-panel'; rt.textContent='✅ Situation optimale — Zéro IR'; txt=`Avec ${fmt(r.ca)} de CA, vous êtes sous le seuil de non-imposition. Vous ne payez que l’URSSAF (${fmt(r.urssaf)}) et votre revenu net s’élève à ${fmt(r.netM)}.`; }
-  else if (r.ca<=37500&&r.ir>0) { rp.className='reco-panel warning-panel'; rt.textContent='⚡ IR en cours — restez sous le seuil TVA'; txt=`Vous payez ${fmt(r.ir)} d’IR. Marge avant TVA : ${fmt(37500-r.ca)}.`; }
-  else if (r.ca<=77700) { rp.className='reco-panel warning-panel'; rt.textContent='⚠️ TVA applicable — Seuil franchise dépassé'; txt=`Dépassement du seuil TVA (37 500 €). Vous devez collecter et déclarer la TVA à 20 %. Il reste ${fmt(77700-r.ca)} avant le plafond micro.`; }
-  else { rp.className='reco-panel danger-panel'; rt.textContent='🚨 Plafond micro dépassé'; txt=`Plafond micro-BNC (77 700 €) dépassé. Si ce dépassement se confirme 2 années consécutives, bascule au régime réel.`; }
-  if (s.contrat==='apprentissage') txt += `\n\nContrat apprentissage : salaire de ${fmt(s.salaire)} ${r.salImp===0?'totalement exonéré d\'IR':'partiellement imposable (fraction : '+fmt(r.salImp)+')'}.`;
-  else if (s.contrat==='pro') txt += `\n\nAttention : contrat pro — pas d’exonération IR. Salaire de ${fmt(s.salaire)} intégralement imposable.`;
-  rx.textContent = txt;
+  // --- Threshold table ---
+  const thresholds = [
+    { label: 'Seuil 0 % IR (1 part)', ca: 26660, effect: 'L\'IR commence à être prélevé', critical: true },
+    { label: 'Franchise TVA', ca: 37500, effect: 'Obligation de facturer et déclarer la TVA', critical: false },
+    { label: 'Plafond micro-BNC', ca: 77700, effect: 'Bascule obligatoire au régime réel (2 ans consécutifs)', critical: true }
+  ];
 
-  document.getElementById('comparison-tbody').innerHTML = Object.entries(structures).map(([key,st]) => {
-    let ue,ie,ne;
-    if (key==='micro-bnc'||key==='micro-bic') { const u=Math.round(r.ca*st.urssafRate),b=Math.round(r.ca*(1-st.abattement)),i=calculateIR(b+r.salImp,s.parts); ne=r.ca-u-i; ue=fmt(u); ie=fmt(i); }
-    else if (key==='sasu') { const sal=Math.round(r.ca*0.55),cot=Math.round(sal*0.80),ben=Math.max(0,r.ca-sal-cot),is=ben<=42500?Math.round(ben*0.15):Math.round(42500*0.15+(ben-42500)*0.25),ir2=calculateIR(Math.round(sal*0.90),s.parts); ne=r.ca-cot-is-ir2; ue=fmt(cot)+' (charges sal.)'; ie=fmt(is)+' IS + '+fmt(ir2)+' IR'; }
-    else { const ch=Math.round(r.ca*0.25),u=Math.round((r.ca-ch)*0.45),b=Math.max(0,r.ca-ch-u),i=calculateIR(b,s.parts); ne=r.ca-ch-u-i; ue=fmt(u)+' (réelles)'; ie=fmt(i); }
-    const al=(key==='micro-bnc'||key==='micro-bic')?`${Math.round(st.abattement*100)} % forfait`:'Charges réelles';
-    const active=key===s.structure;
-    return `<tr><td style="${active?'font-weight:700;color:var(--primary);':''}">${active?'▶ ':''}${st.label}${key==='micro-bnc'?' <span style="font-size:0.75rem;background:#dcfce7;color:#15803d;padding:1px 6px;border-radius:4px;">Recommandé</span>':''}</td><td>${al}</td><td>${ue}</td><td>${ie}</td><td class="${active?'highlight-col':''}" style="font-weight:700;">${fmt(ne)}</td><td>${key==='micro-bnc'||key==='micro-bic'?'⭐ Très simple':key==='sasu'?'🔴 Complexe':'🟡 Modérée'}</td></tr>`;
-  }).join('');
+  let thtml = '';
+  thresholds.forEach(t => {
+    const exceeded = r.ca > t.ca;
+    const active = r.ca > t.ca * 0.85 && r.ca <= t.ca;
+    const cls = exceeded ? 'exceeded-row' : (active ? 'active-row' : '');
+    const dot = exceeded ? 'dot-red' : (active ? 'dot-yellow' : 'dot-green');
+    const status = exceeded ? '⚠️ Dépassé' : (active ? '⚡ Proche' : '✓ OK');
+    const diff = t.ca - r.ca;
+    const note = exceeded ? `Dépassé de ${fmt(r.ca - t.ca)}` : `Marge : ${fmt(diff)}`;
+    thtml += `<tr class="${cls}">
+      <td><span class="status-dot ${dot}"></span>${t.label}</td>
+      <td><strong>${fmt(t.ca)}</strong></td>
+      <td style="font-size:0.83rem;">${t.effect}</td>
+      <td><strong>${status}</strong><br><span style="font-size:0.75rem;color:var(--muted);">${note}</span></td>
+    </tr>`;
+  });
+  document.getElementById('threshold-tbody').innerHTML = thtml;
 
-  const alt=document.getElementById('alternance-section');
-  if (s.contrat!=='aucun') {
-    alt.style.display='block';
-    let h='<table class="comparison-table"><thead><tr><th>Source</th><th>Brut</th><th>Base IR</th><th>Net</th></tr></thead><tbody>';
-    if (s.contrat==='apprentissage') h+=`<tr><td>Salaire apprenti</td><td>${fmt(s.salaire)}</td><td>${r.salImp===0?'<span style="color:var(--success);font-weight:700;">0 € ✓ (exonéré)</span>':fmt(r.salImp)+' (fraction)'}</td><td>${fmt(r.salNet)}</td></tr>`;
-    else h+=`<tr><td>Salaire</td><td>${fmt(s.salaire)}</td><td>${fmt(r.salImp)}</td><td>${fmt(r.salNet)}</td></tr>`;
-    h+=`<tr><td>Micro (CA)</td><td>${fmt(r.ca)}</td><td>${fmt(r.benImp)}</td><td>${fmt(r.netM)}</td></tr>`;
-    h+=`<tr style="font-weight:700;background:#f0fdf4;"><td>TOTAL</td><td>${fmt(r.ca+s.salaire)}</td><td>${fmt(r.totImp)}</td><td>${fmt(r.netT)}</td></tr></tbody></table>`;
-    if (s.contrat==='apprentissage'&&s.salaire>21876) h+=`<div class="alert alert-warning" style="margin-top:14px;">⚠️ Salaire au-dessus du plafond d’exonération (21 876 €). Fraction imposable : ${fmt(s.salaire-21876)}.</div>`;
-    document.getElementById('alternance-detail').innerHTML = h;
-  } else { alt.style.display='none'; }
+  // --- Recommendation ---
+  const recoPanel = document.getElementById('reco-panel');
+  const recoTitle = document.getElementById('reco-title');
+  const recoText = document.getElementById('reco-text');
 
-  const vig=[];
-  if (s.contrat==='apprentissage') { vig.push({t:'info',i:'📋',x:'<strong>Type de contrat :</strong> Vérifier qu\'il s\'agit bien d\'un <strong>contrat d\'apprentissage</strong> et non contrat pro. Toute l\'optimisation IR en dépend.'}); vig.push({t:'info',i:'⏱️',x:'<strong>Durée de travail :</strong> Vérifier l\'absence de clause d\'exclusivité et le respect des durées maximales cumulées.'}); }
-  if (s.contrat==='pro') vig.push({t:'warning',i:'⚠️',x:'<strong>Contrat pro :</strong> Pas d\'exonération IR sur le salaire. Envisager un contrat d\'apprentissage si possible.'});
-  vig.push({t:'info',i:'📝',x:'<strong>Déclarations obligatoires même à IR nul :</strong> URSSAF mensuelle/trimestrielle + case micro-BNC sur la 2042-C-PRO.'});
-  vig.push(r.ir===0?{t:'success',i:'🚫',x:'<strong>Versement libératoire :</strong> Ne pas l\'activer — vous n\'êtes pas imposable (2,2 % du CA payés inutilement).'}:{t:'info',i:'💡',x:`<strong>Versement libératoire :</strong> Avec ${fmt(r.ir)} d’IR, comparez avec 2,2 % du CA = ${fmt(Math.round(r.ca*0.022))}.`});
-  vig.push({t:'info',i:'🏢',x:'<strong>CFE :</strong> Exonérée la 1re année, puis ~250–600 €/an selon la commune.'});
-  if (r.ca>37500) vig.push({t:'warning',i:'🧾',x:'<strong>TVA :</strong> Seuil dépassé. Toutes vos factures doivent mentionner la TVA (20 %) à reverser à l\'administration.'});
-  document.getElementById('vigilance-list').innerHTML = vig.map(v=>`<div class="alert alert-${v.t}" style="margin-bottom:8px;"><span>${v.i}</span><span>${v.x}</span></div>`).join('');
+  let parts_label = s.parts === 1 ? 'célibataire (1 part)' : s.parts === 1.5 ? '1,5 parts' : '2 parts';
+  let baseText = '';
+
+  if (r.ca <= 26660 && r.ir === 0) {
+    recoPanel.className = 'reco-panel';
+    recoTitle.textContent = '✅ Situation optimale — Zéro IR';
+    baseText = `Avec ${fmt(r.ca)} de CA, vous êtes sous le seuil de non-imposition (${parts_label}). Vous ne payez que l\'URSSAF (${fmt(r.urssaf)}) et votre revenu net s\'élève à ${fmt(r.netMicro)}. Continuez ainsi.`;
+  } else if (r.ca <= 37500 && r.ir > 0) {
+    recoPanel.className = 'reco-panel warning-panel';
+    recoTitle.textContent = '⚡ IR en cours — restez sous le seuil TVA';
+    baseText = `Vous payez ${fmt(r.ir)} d\'IR. Vous avez encore ${fmt(37500 - r.ca)} de marge avant d\'atteindre le seuil de TVA (37 500 €). Pensez à vérifier si le versement libératoire (2,2 % du CA) serait plus simple, uniquement si vous êtes imposable.`;
+  } else if (r.ca > 37500 && r.ca <= 77700) {
+    recoPanel.className = 'reco-panel warning-panel';
+    recoTitle.textContent = '⚠️ TVA applicable — Seuil franchise dépassé';
+    baseText = `Vous avez dépassé le seuil de franchise en base de TVA (37 500 €). Vous devez collecter et déclarer la TVA (20 % sur vos prestations). Pensez à l\'indiquer sur vos factures. Il reste ${fmt(77700 - r.ca)} avant le plafond micro.`;
+  } else if (r.ca > 77700) {
+    recoPanel.className = 'reco-panel danger-panel';
+    recoTitle.textContent = '🚨 Plafond micro dépassé — Changement de régime requis';
+    baseText = `Vous avez dépassé le plafond micro-BNC de 77 700 €. Si ce dépassement se confirme deux années consécutives, vous basculez automatiquement au régime réel. Consultez un expert-comptable pour anticiper.`;
+  }
+
+  if (s.contrat === 'apprentissage') {
+    const bonus = `\n\nGrâce au contrat d\'apprentissage, votre salaire de ${fmt(s.salaire)} est ${r.salaireImposable === 0 ? 'totalement exonéré d\'IR (sous le plafond de 21 876 €)' : `partiellement imposable (fraction : ${fmt(r.salaireImposable)})`}. Cela n\'augmente ${r.salaireImposable === 0 ? 'pas' : 'que marginalement'} votre base imposable.`;
+    baseText += bonus;
+  } else if (s.contrat === 'pro') {
+    baseText += `\n\nAttention : le contrat de professionnalisation n\'offre pas d\'exonération IR sur le salaire (contrairement à l\'apprentissage). Votre salaire de ${fmt(s.salaire)} s\'ajoute intégralement à votre base imposable.`;
+  }
+
+  recoText.textContent = baseText;
+
+  // --- Comparison table ---
+  const compRows = Object.entries(structures).map(function(entry) {
+    const key = entry[0];
+    const st = entry[1];
+    const currentCA = r.ca;
+
+    let urssafEst, irEst, netEst;
+
+    if (key === 'micro-bnc' || key === 'micro-bic') {
+      const u = Math.round(currentCA * st.urssafRate);
+      const b = Math.round(currentCA * (1 - st.abattement));
+      const i = calculateIR(b + r.salaireImposable, s.parts);
+      netEst = currentCA - u - i;
+      urssafEst = fmt(u);
+      irEst = fmt(i);
+    } else if (key === 'sasu') {
+      const sal = Math.round(currentCA * 0.55);
+      const cotis = Math.round(sal * 0.80);
+      const ben = Math.max(0, currentCA - sal - cotis);
+      const impotSoc = ben <= 42500
+        ? Math.round(ben * 0.15)
+        : Math.round(42500 * 0.15 + (ben - 42500) * 0.25);
+      const irSal = calculateIR(Math.round(sal * 0.90), s.parts);
+      netEst = currentCA - cotis - impotSoc - irSal;
+      urssafEst = fmt(cotis) + ' (charges sal.)';
+      irEst = fmt(impotSoc) + ' IS + ' + fmt(irSal) + ' IR';
+    } else {
+      const charges = Math.round(currentCA * 0.25);
+      const u = Math.round((currentCA - charges) * 0.45);
+      const b = Math.max(0, currentCA - charges - u);
+      const i = calculateIR(b, s.parts);
+      netEst = currentCA - charges - u - i;
+      urssafEst = fmt(u) + ' (cotis. réelles)';
+      irEst = fmt(i);
+    }
+
+    const abattLabel = (key === 'micro-bnc' || key === 'micro-bic')
+      ? (Math.round(st.abattement * 100) + ' % forfait')
+      : 'Charges réelles déductibles';
+
+    const isActive = key === s.structure;
+    return '<tr>'
+      + '<td style="' + (isActive ? 'font-weight:700;color:var(--primary);' : '') + '">'
+      + (isActive ? '▶ ' : '') + st.label
+      + (key === 'micro-bnc' ? ' <span style="font-size:0.75rem;background:#dcfce7;color:#15803d;padding:1px 6px;border-radius:4px;">Recommandé</span>' : '')
+      + '</td>'
+      + '<td>' + abattLabel + '</td>'
+      + '<td>' + urssafEst + '</td>'
+      + '<td>' + irEst + '</td>'
+      + '<td class="' + (isActive ? 'highlight-col' : '') + '" style="font-weight:700;">' + fmt(netEst) + '</td>'
+      + '<td>' + (key === 'micro-bnc' || key === 'micro-bic' ? '⭐ Très simple' : key === 'sasu' ? '🔴 Complexe' : '\uD83D\UDFE1 Modérée') + '</td>'
+      + '</tr>';
+  });
+  document.getElementById('comparison-tbody').innerHTML = compRows.join('');
+
+  // --- Alternance detail ---
+  const altSection = document.getElementById('alternance-section');
+  const altDetail = document.getElementById('alternance-detail');
+  if (s.contrat !== 'aucun') {
+    altSection.style.display = 'block';
+    let html = '<table class="comparison-table"><thead><tr><th>Source de revenu</th><th>Brut</th><th>Base imposable IR</th><th>Net estimé</th></tr></thead><tbody>';
+
+    if (s.contrat === 'apprentissage') {
+      html += '<tr>'
+        + '<td>Salaire apprenti</td>'
+        + '<td>' + fmt(s.salaire) + '</td>'
+        + '<td>' + (r.salaireImposable === 0 ? '<span style="color:var(--success);font-weight:700;">0 € ✓ (exonéré)</span>' : fmt(r.salaireImposable) + ' (fraction imposable)') + '</td>'
+        + '<td>' + fmt(r.salaireNet) + '</td>'
+        + '</tr>';
+    } else {
+      html += '<tr>'
+        + '<td>Salaire (' + (s.contrat === 'pro' ? 'contrat pro' : 'salarié') + ')</td>'
+        + '<td>' + fmt(s.salaire) + '</td>'
+        + '<td>' + fmt(r.salaireImposable) + '</td>'
+        + '<td>' + fmt(r.salaireNet) + '</td>'
+        + '</tr>';
+    }
+
+    html += '<tr>'
+      + '<td>Micro-' + (s.structure === 'micro-bnc' ? 'BNC' : 'BIC') + ' (CA)</td>'
+      + '<td>' + fmt(r.ca) + '</td>'
+      + '<td>' + fmt(r.beneficeImposable) + '</td>'
+      + '<td>' + fmt(r.netMicro) + '</td>'
+      + '</tr>';
+    html += '<tr style="font-weight:700;background:#f0fdf4;">'
+      + '<td>TOTAL</td>'
+      + '<td>' + fmt(r.ca + s.salaire) + '</td>'
+      + '<td>' + fmt(r.totalImposable) + '</td>'
+      + '<td>' + fmt(r.netTotal) + '</td>'
+      + '</tr>';
+    html += '</tbody></table>';
+
+    if (s.contrat === 'apprentissage' && s.salaire > 21876) {
+      html += '<div class="alert alert-warning" style="margin-top:14px;">⚠️ Votre salaire d\'apprenti (' + fmt(s.salaire) + ') dépasse le plafond d\'exonération (21 876 €). La fraction excédentaire de ' + fmt(s.salaire - 21876) + ' devient imposable et s\'ajoute à votre bénéfice micro.</div>';
+    }
+
+    altDetail.innerHTML = html;
+  } else {
+    altSection.style.display = 'none';
+  }
+
+  // --- Vigilance ---
+  const vigItems = [];
+
+  if (s.contrat === 'apprentissage') {
+    vigItems.push({ type: 'info', icon: '📋', text: '<strong>Type de contrat :</strong> Vérifier impérativement qu\'il s\'agit d\'un <strong>contrat d\'apprentissage</strong> (et non contrat pro). Toute l\'optimisation IR en dépend.' });
+    vigItems.push({ type: 'info', icon: '⏱️', text: '<strong>Durée de travail :</strong> Vérifier l\'absence de clause d\'exclusivité et le respect des durées maximales de travail cumulées.' });
+  }
+  if (s.contrat === 'pro') {
+    vigItems.push({ type: 'warning', icon: '⚠️', text: '<strong>Contrat de professionnalisation :</strong> Pas d\'exonération IR sur le salaire. Envisager de basculer en contrat d\'apprentissage si possible.' });
+  }
+
+  vigItems.push({ type: 'info', icon: '📝', text: '<strong>Déclarations obligatoires même à IR nul :</strong> Déclaration URSSAF (mensuelle ou trimestrielle) + report du CA en case micro-BNC sur la déclaration 2042-C-PRO.' });
+
+  if (r.ir === 0) {
+    vigItems.push({ type: 'success', icon: '🚫', text: '<strong>Versement libératoire :</strong> Ne pas l\'activer tant que vous êtes non imposable (ce serait 2,2 % du CA payés inutilement).' });
+  } else {
+    vigItems.push({ type: 'info', icon: '💡', text: '<strong>Versement libératoire :</strong> Avec ' + fmt(r.ir) + ' d\'IR, envisagez si le versement libératoire (2,2 % du CA = ' + fmt(Math.round(r.ca * 0.022)) + ') est plus avantageux.' });
+  }
+
+  vigItems.push({ type: 'info', icon: '🏢', text: '<strong>CFE (Cotisation Foncière des Entreprises) :</strong> Exonérée la 1re année, puis ~250–600 €/an selon la commune.' });
+
+  if (r.ca > 37500) {
+    vigItems.push({ type: 'warning', icon: '🧾', text: '<strong>TVA :</strong> Vous avez dépassé le seuil de franchise. Toutes vos factures doivent mentionner la TVA (20 %) et vous devez la reverser à l\'administration.' });
+  }
+
+  const vigHTML = vigItems.map(v =>
+    '<div class="alert alert-' + v.type + '" style="margin-bottom:8px;"><span>' + v.icon + '</span><span>' + v.text + '</span></div>'
+  ).join('');
+  document.getElementById('vigilance-list').innerHTML = vigHTML;
 }
 
-function syncInput(f) { const v=parseInt(document.getElementById(f+'-slider').value); state[f]=v; document.getElementById(f+'-input').value=v; document.getElementById(f+'-display').textContent=fmt(v); render(); }
-function syncSlider(f) { const sl=document.getElementById(f+'-slider'); let v=parseInt(document.getElementById(f+'-input').value)||0; v=Math.max(0,Math.min(parseInt(sl.max),v)); state[f]=v; sl.value=v; document.getElementById(f+'-display').textContent=fmt(v); render(); }
+// ============================================================
+// SYNC INPUTS
+// ============================================================
+function syncInput(field) {
+  const slider = document.getElementById(field + '-slider');
+  const input = document.getElementById(field + '-input');
+  const display = document.getElementById(field + '-display');
+  state[field] = parseInt(slider.value);
+  input.value = state[field];
+  display.textContent = fmt(state[field]);
+  render();
+}
 
+function syncSlider(field) {
+  const slider = document.getElementById(field + '-slider');
+  const input = document.getElementById(field + '-input');
+  const display = document.getElementById(field + '-display');
+  let val = parseInt(input.value) || 0;
+  val = Math.max(0, Math.min(parseInt(slider.max), val));
+  state[field] = val;
+  slider.value = val;
+  display.textContent = fmt(val);
+  render();
+}
+
+// ============================================================
+// SETTERS
+// ============================================================
 function setStructure(key) {
-  state.structure=key;
-  Object.keys(structures).forEach(k=>document.getElementById('card-'+k).classList.toggle('active',k===key));
-  const im={'micro-bnc':'info','micro-bic':'info','sasu':'warning','ei':'info'};
-  const el=document.getElementById('structure-info');
-  el.className='alert alert-'+im[key];
-  el.innerHTML=`ℹ️ <strong>${structures[key].label} sélectionné :</strong> ${structures[key].info}`;
+  state.structure = key;
+  Object.keys(structures).forEach(k => {
+    document.getElementById('card-' + k).classList.toggle('active', k === key);
+  });
+  const s = structures[key];
+  const infoMap = {
+    'micro-bnc': 'info', 'micro-bic': 'info', 'sasu': 'warning', 'ei': 'info'
+  };
+  const info = document.getElementById('structure-info');
+  info.className = 'alert alert-' + infoMap[key];
+  info.innerHTML = 'ℹ️ <strong>' + s.label + ' sélectionné :</strong> ' + s.info;
   render();
 }
 
 function setContrat(type) {
-  state.contrat=type;
-  ['aucun','apprentissage','pro','salarie'].forEach(t=>document.getElementById('btn-'+t).classList.toggle('active',t===type));
-  document.getElementById('salaire-group').style.display=type!=='aucun'?'block':'none';
+  state.contrat = type;
+  ['aucun','apprentissage','pro','salarie'].forEach(t => {
+    document.getElementById('btn-' + t).classList.toggle('active', t === type);
+  });
+  document.getElementById('salaire-group').style.display = type !== 'aucun' ? 'block' : 'none';
   render();
 }
 
 function setParts(p) {
-  state.parts=p;
-  ['1part','15part','2parts'].forEach(id=>document.getElementById('btn-'+id).classList.remove('active'));
-  if(p===1) document.getElementById('btn-1part').classList.add('active');
-  else if(p===1.5) document.getElementById('btn-15part').classList.add('active');
+  state.parts = p;
+  ['1part','15part','2parts'].forEach(id => {
+    document.getElementById('btn-' + id).classList.remove('active');
+  });
+  if (p === 1) document.getElementById('btn-1part').classList.add('active');
+  else if (p === 1.5) document.getElementById('btn-15part').classList.add('active');
   else document.getElementById('btn-2parts').classList.add('active');
   render();
 }
 
+// ============================================================
+// PDF GENERATION
+// ============================================================
 function generatePDF() {
-  const r=calculate(), s=state;
-  const isMicro=s.structure==='micro-bnc'||s.structure==='micro-bic';
-  const today=new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
-  const abatt=isMicro?Math.round(r.ca*r.st.abattement):0;
-  const partsLabel=s.parts===1?'Célibataire (1 part)':s.parts===1.5?'1,5 parts fiscales':'Couple (2 parts)';
-  const contratLabel={aucun:'Aucun',apprentissage:'Apprentissage',pro:'Contrat pro',salarie:'Salarié classique'}[s.contrat];
+  const r = calculate();
+  const s = state;
+  const isMicro = s.structure === 'micro-bnc' || s.structure === 'micro-bic';
+  const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
 
-  let recoClass='',recoTitle='',recoText='';
-  if (r.ca<=26660&&r.ir===0) { recoClass=''; recoTitle='✅ Situation optimale — Zéro IR'; recoText=`Avec ${fmt(r.ca)} de CA, vous n’êtes pas imposable. Vous ne payez que l’URSSAF (${fmt(r.urssaf)}) et votre revenu net est de ${fmt(r.netM)}.`; }
-  else if (r.ca<=37500) { recoClass='warn'; recoTitle='⚡ IR en cours'; recoText=`Vous payez ${fmt(r.ir)} d’IR. Marge avant seuil TVA : ${fmt(37500-r.ca)}.`; }
-  else if (r.ca<=77700) { recoClass='warn'; recoTitle='⚠️ Seuil TVA dépassé'; recoText=`Vous devez collecter et déclarer la TVA à 20 %. Il reste ${fmt(77700-r.ca)} avant le plafond micro.`; }
-  else { recoClass='danger'; recoTitle='🚨 Plafond micro dépassé'; recoText='Dépassement du plafond micro-BNC. Bascule au régime réel si 2 années consécutives.'; }
-  if (s.contrat==='apprentissage') recoText+=` Contrat apprentissage : salaire ${r.salImp===0?'totalement exonéré d\'IR':'partiellement imposable'}.`;
-  else if (s.contrat==='pro') recoText+=` Attention : contrat pro, salaire intégralement imposable.`;
+  const structLabel = r.struct.label;
+  const abatt = isMicro ? Math.round(r.ca * r.struct.abattement) : 0;
 
-  const tRows=[{label:'Seuil 0 % IR',ca:26660},{label:'Franchise TVA',ca:37500},{label:'Plafond micro-BNC',ca:77700}].map(t=>{
-    const ex=r.ca>t.ca, ac=r.ca>t.ca*0.85&&r.ca<=t.ca;
-    return `<tr><td>${t.label}</td><td>${fmt(t.ca)}</td><td style="font-weight:700;">${ex?'⚠️ Dépassé':ac?'⚡ Proche':'✓ OK'}</td><td>${ex?'+'+fmt(r.ca-t.ca):'−'+fmt(t.ca-r.ca)}</td></tr>`;
+  let recoClass = '', recoTitle = '', recoText = '';
+  if (r.ca <= 26660 && r.ir === 0) {
+    recoClass = ''; recoTitle = '✅ Situation optimale — Zéro IR';
+    recoText = 'Avec ' + fmt(r.ca) + ' de CA, vous n\'êtes pas imposable. Vous ne payez que l\'URSSAF (' + fmt(r.urssaf) + ') et votre revenu net est de ' + fmt(r.netMicro) + '.';
+  } else if (r.ca <= 37500) {
+    recoClass = 'warn'; recoTitle = '⚡ IR en cours';
+    recoText = 'Vous payez ' + fmt(r.ir) + ' d\'IR. Marge avant seuil TVA : ' + fmt(37500 - r.ca) + '.';
+  } else if (r.ca <= 77700) {
+    recoClass = 'warn'; recoTitle = '⚠️ Seuil TVA dépassé';
+    recoText = 'Vous devez collecter et déclarer la TVA à 20 %. Il reste ' + fmt(77700 - r.ca) + ' avant le plafond micro.';
+  } else {
+    recoClass = 'danger'; recoTitle = '🚨 Plafond micro dépassé';
+    recoText = 'Dépassement du plafond micro-BNC. Bascule au régime réel si 2 années consécutives.';
+  }
+  if (s.contrat === 'apprentissage') recoText += ' Contrat apprentissage : salaire ' + (r.salaireImposable === 0 ? 'totalement exonéré d\'IR' : 'partiellement imposable') + '.';
+  if (s.contrat === 'pro') recoText += ' Attention : contrat pro, salaire intégralement imposable.';
+
+  const thresholds = [
+    { label: 'Seuil 0 % IR', ca: 26660 },
+    { label: 'Franchise TVA', ca: 37500 },
+    { label: 'Plafond micro-BNC', ca: 77700 }
+  ];
+  const tRows = thresholds.map(t => {
+    const exceeded = r.ca > t.ca;
+    const active = r.ca > t.ca * 0.85 && r.ca <= t.ca;
+    const status = exceeded ? '⚠️ Dépassé' : (active ? '⚡ Proche' : '✓ OK');
+    const note = exceeded ? '+' + fmt(r.ca - t.ca) : '−' + fmt(t.ca - r.ca);
+    return '<tr><td>' + t.label + '</td><td>' + fmt(t.ca) + '</td><td style="font-weight:700;">' + status + '</td><td>' + note + '</td></tr>';
   }).join('');
 
-  let contratRows='';
-  if (s.contrat!=='aucun') {
-    const cl=s.contrat==='apprentissage'?'Salaire apprenti brut':s.contrat==='pro'?'Salaire contrat pro':'Salaire salarié';
-    contratRows+=`<div class="ps-row"><span class="pl">${cl}</span><span class="pv">${fmt(s.salaire)}</span></div>`;
-    if (s.contrat==='apprentissage') {
-      contratRows+=`<div class="ps-row"><span class="pl">↳ Part exonérée IR</span><span class="pv c-green">${fmt(r.salExo)} exo</span></div>`;
-      if (r.salImp>0) contratRows+=`<div class="ps-row"><span class="pl">↳ Fraction imposable</span><span class="pv c-orange">${fmt(r.salImp)}</span></div>`;
+  let contratRows = '';
+  if (s.contrat !== 'aucun') {
+    const cLabel = s.contrat === 'apprentissage' ? 'Salaire apprenti brut' : s.contrat === 'pro' ? 'Salaire contrat pro' : 'Salaire salarié';
+    contratRows += '<div class="ps-row"><span class="pl">' + cLabel + '</span><span class="pv">' + fmt(s.salaire) + '</span></div>';
+    if (s.contrat === 'apprentissage') {
+      contratRows += '<div class="ps-row"><span class="pl">↳ Part exonérée IR</span><span class="pv c-green">' + fmt(r.salaireExonere) + ' exo</span></div>';
+      if (r.salaireImposable > 0) contratRows += '<div class="ps-row"><span class="pl">↳ Fraction imposable</span><span class="pv c-orange">' + fmt(r.salaireImposable) + '</span></div>';
     }
   }
 
-  document.getElementById('print-summary').innerHTML = `
-    <div class="ps-header">
-      <h1>🏋️ Synthèse Fiscale — Coach Sportif 2026</h1>
-      <p>Générée le ${today} · Structure : ${r.st.label} · ${partsLabel} · Contrat : ${contratLabel}</p>
-    </div>
-    <div class="ps-grid">
-      <div class="ps-tile"><div class="tl">Chiffre d’affaires</div><div class="tv c-blue">${fmt(r.ca)}</div><div class="tn">CA brut annuel</div></div>
-      <div class="ps-tile"><div class="tl">URSSAF</div><div class="tv c-red">${fmt(r.urssaf)}</div><div class="tn">${Math.round(r.st.urssafRate*1000)/10} % du CA</div></div>
-      <div class="ps-tile"><div class="tl">Impôt sur le revenu</div><div class="tv ${r.ir===0?'c-green':'c-orange'}">${r.ir===0?'0 € ✓':fmt(r.ir)}</div><div class="tn">Après décote</div></div>
-      <div class="ps-tile"><div class="tl">Net disponible</div><div class="tv c-green">${fmt(r.netT)}</div><div class="tn">≈ ${fmt(Math.round(r.netT/12))}/mois · taux ${r.taux} %</div></div>
-    </div>
-    <div class="ps-section">
-      <div class="ps-section-title">Détail du calcul</div>
-      <div class="ps-row"><span class="pl">Chiffre d’affaires (CA)</span><span class="pv">${fmt(r.ca)}</span></div>
-      ${isMicro?`<div class="ps-row"><span class="pl">Abattement forfaitaire (${Math.round(r.st.abattement*100)} %)</span><span class="pv c-red">− ${fmt(abatt)}</span></div>`:''}
-      <div class="ps-row"><span class="pl">Bénéfice imposable</span><span class="pv">${fmt(r.benImp)}</span></div>
-      <div class="ps-row"><span class="pl">URSSAF (${Math.round(r.st.urssafRate*1000)/10} %)</span><span class="pv c-red">− ${fmt(r.urssaf)}</span></div>
-      ${contratRows}
-      <div class="ps-row ptotal"><span class="pl">Base IR totale</span><span class="pv">${fmt(r.totImp)}</span></div>
-      <div class="ps-row"><span class="pl">Impôt sur le revenu (IR)</span><span class="pv ${r.ir===0?'c-green':'c-red'}">− ${fmt(r.ir)} ${r.ir===0?'✓':''}</span></div>
-      ${s.contrat!=='aucun'?`<div class="ps-row"><span class="pl">+ Salaire net</span><span class="pv c-green">+ ${fmt(r.salNet)}</span></div>`:''}
-      <div class="ps-row ptotal"><span class="pl">Revenu net total</span><span class="pv c-green">${fmt(r.netT)}</span></div>
-    </div>
-    <div class="ps-reco ${recoClass}"><h3>${recoTitle}</h3><p>${recoText}</p></div>
-    <div class="ps-section">
-      <div class="ps-section-title">Seuils à surveiller</div>
-      <table class="ps-thresholds"><thead><tr><th>Seuil</th><th>Montant CA</th><th>Statut</th><th>Écart</th></tr></thead><tbody>${tRows}</tbody></table>
-    </div>
-    <div class="ps-footer">Synthèse générée automatiquement · Barème IR 2026 · Données indicatives, non contractuelles.<br>Pour toute décision engageante, consultez impots.gouv.fr ou un conseiller fiscal.</div>
-  `;
-  setTimeout(()=>window.print(),100);
+  const partsLabel = s.parts === 1 ? 'Célibataire (1 part)' : s.parts === 1.5 ? '1,5 parts fiscales' : 'Couple (2 parts)';
+  const contratLabel = { aucun: 'Aucun', apprentissage: 'Apprentissage', pro: 'Contrat pro', salarie: 'Salarié classique' }[s.contrat];
+
+  document.getElementById('print-summary').innerHTML =
+    '<div class="ps-header">'
+    + '<h1>🏋️ Synthèse Fiscale — Coach Sportif 2026</h1>'
+    + '<p>Générée le ' + today + ' · Structure : ' + structLabel + ' · ' + partsLabel + ' · Contrat : ' + contratLabel + '</p>'
+    + '</div>'
+    + '<div class="ps-grid">'
+    + '<div class="ps-tile"><div class="tl">Chiffre d\'affaires</div><div class="tv c-blue">' + fmt(r.ca) + '</div><div class="tn">CA brut annuel</div></div>'
+    + '<div class="ps-tile"><div class="tl">URSSAF</div><div class="tv c-red">' + fmt(r.urssaf) + '</div><div class="tn">' + (Math.round(r.struct.urssafRate * 100 * 10) / 10) + ' % du CA</div></div>'
+    + '<div class="ps-tile"><div class="tl">Impôt sur le revenu</div><div class="tv ' + (r.ir === 0 ? 'c-green' : 'c-orange') + '">' + (r.ir === 0 ? '0 € ✓' : fmt(r.ir)) + '</div><div class="tn">Après décote</div></div>'
+    + '<div class="ps-tile"><div class="tl">Net disponible</div><div class="tv c-green">' + fmt(r.netTotal) + '</div><div class="tn">≈ ' + fmt(Math.round(r.netTotal / 12)) + '/mois · taux ' + r.tauxEffectif + ' %</div></div>'
+    + '</div>'
+    + '<div class="ps-section">'
+    + '<div class="ps-section-title">Détail du calcul</div>'
+    + '<div class="ps-row"><span class="pl">Chiffre d\'affaires (CA)</span><span class="pv">' + fmt(r.ca) + '</span></div>'
+    + (isMicro ? '<div class="ps-row"><span class="pl">Abattement forfaitaire (' + Math.round(r.struct.abattement * 100) + ' %)</span><span class="pv c-red">− ' + fmt(abatt) + '</span></div>' : '')
+    + '<div class="ps-row"><span class="pl">Bénéfice imposable</span><span class="pv">' + fmt(r.beneficeImposable) + '</span></div>'
+    + '<div class="ps-row"><span class="pl">URSSAF (' + (Math.round(r.struct.urssafRate * 100 * 10) / 10) + ' %)</span><span class="pv c-red">− ' + fmt(r.urssaf) + '</span></div>'
+    + contratRows
+    + '<div class="ps-row ptotal"><span class="pl">Base IR totale</span><span class="pv">' + fmt(r.totalImposable) + '</span></div>'
+    + '<div class="ps-row"><span class="pl">Impôt sur le revenu (IR)</span><span class="pv ' + (r.ir === 0 ? 'c-green' : 'c-red') + '">− ' + fmt(r.ir) + ' ' + (r.ir === 0 ? '✓' : '') + '</span></div>'
+    + (s.contrat !== 'aucun' ? '<div class="ps-row"><span class="pl">+ Salaire net</span><span class="pv c-green">+ ' + fmt(r.salaireNet) + '</span></div>' : '')
+    + '<div class="ps-row ptotal"><span class="pl">Revenu net total</span><span class="pv c-green">' + fmt(r.netTotal) + '</span></div>'
+    + '</div>'
+    + '<div class="ps-reco ' + recoClass + '"><h3>' + recoTitle + '</h3><p>' + recoText + '</p></div>'
+    + '<div class="ps-section">'
+    + '<div class="ps-section-title">Seuils à surveiller</div>'
+    + '<table class="ps-thresholds"><thead><tr><th>Seuil</th><th>Montant CA</th><th>Statut</th><th>Écart</th></tr></thead><tbody>' + tRows + '</tbody></table>'
+    + '</div>'
+    + '<div class="ps-footer">Synthèse générée automatiquement · Barème IR 2026 (revenus 2025-2026) · Données indicatives, non contractuelles.<br>Pour toute décision engageante, consultez impots.gouv.fr ou un conseiller fiscal.</div>';
+
+  setTimeout(() => window.print(), 100);
 }
 
+// ============================================================
+// INIT
+// ============================================================
 render();
 </script>
 </body>
